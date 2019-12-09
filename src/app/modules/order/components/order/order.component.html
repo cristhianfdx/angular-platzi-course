@@ -1,0 +1,47 @@
+<div *ngIf="(products$ | async) as products">
+  <div *ngIf="products.length > 0; else elseTemplate">
+    <mat-horizontal-stepper>
+      <mat-step>
+        <ng-template matStepLabel>Sus productos</ng-template>
+        <div class="row" *ngFor="let product of products | deleteRepeat">
+          <div class="col-xs-12 col-sm-2 col-md-2">
+            <div class="box">
+                <span [matBadge]="product | repeatNumber:products"
+                  matBadgeColor="accent" matBadgeSide="large">
+                    <img [src]="product.image" alt="" class="image"/>
+                </span>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-5 col-md-5">
+            <div class="box">
+              <span>{{ product.title }}</span>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-5 col-md-5">
+            <div class="box">
+              {{ product.price | currency }}
+            </div>
+          </div>
+        </div>
+        <span>Cantidad total: {{quantity$ | async}}</span>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Datos personales</ng-template>
+        Datos
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Pago</ng-template>
+        Pago
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+  <ng-template #elseTemplate>
+    <p>El carrito de compra esta vacío</p>
+  </ng-template>
+</div>
+
+<!-- <ul>
+    <li *ngFor="let product of (products$ | async)">
+        {{product.title}}
+    </li>
+</ul> -->

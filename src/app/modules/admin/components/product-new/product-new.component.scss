@@ -1,0 +1,42 @@
+.input-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.input-file + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: #3f51b5;
+  padding: 10px;
+  border-radius: 15px;
+  display: inline-block;
+  outline: none;
+}
+
+.input-file:focus + label,
+.input-file + label:hover {
+  background-color: #3f51b58a;
+  text-decoration: none;
+}
+
+.input-file + label {
+  cursor: pointer; /* "hand" cursor */
+}
+
+.input-file:focus + label {
+  outline: none;
+}
+
+.preview {
+  position: relative;
+}
+
+.preview img {
+  max-width: 100%;
+  height: 200px;
+}

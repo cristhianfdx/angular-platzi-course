@@ -1,0 +1,85 @@
+<form [formGroup]="form" (ngSubmit)="updateProduct($event)">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Editar Producto</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Título"
+              type="text"
+              formControlName="title"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Precio"
+              type="number"
+              formControlName="price"
+            />
+          </mat-form-field>
+          <div *ngIf="priceField.errors && form.get('price').dirty">
+            <mat-error
+              *ngIf="priceField.hasError('price_invalid')"
+              style="color: red;"
+            >
+              El precio es inválido
+            </mat-error>
+            <mat-error
+              *ngIf="priceField.hasError('required')"
+              style="color: red;"
+            >
+              El precio es requerido
+            </mat-error>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Imagén"
+              type="text"
+              readonly
+              formControlName="image"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <textarea
+              matInput
+              placeholder="Descripción"
+              formControlName="description"
+            >
+            </textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="!form.valid"
+      >
+        Guardar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
