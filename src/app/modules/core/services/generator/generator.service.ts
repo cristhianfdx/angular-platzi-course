@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 
 import { EmployeeData } from '../../models/employee-data.model';
 
+import { interval, Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,5 +33,9 @@ export class GeneratorService {
       label: this.generateLabel(labels),
       num: this.generateNumber(numRange)
     };
+  }
+
+  getData(): Observable<number> {
+    return interval(2000);
   }
 }
