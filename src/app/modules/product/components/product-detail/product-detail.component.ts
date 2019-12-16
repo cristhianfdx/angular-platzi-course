@@ -3,6 +3,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
+import * as FileSaver from 'file-saver';
+
 import { Product } from '@core/models/product.model';
 import { ProductsService } from '@core/services/products/products.service';
 
@@ -73,6 +75,13 @@ export class ProductDetailComponent implements OnInit {
       console.error(error);
     }
     );
+  }
+
+  getFile() {
+    this.productService.getFile().subscribe(file => {
+      const blob = new Blob([file], {type: 'text/plain;charset=utf-8'});
+      FileSaver.saveAs(blob, 'hello world.txt');
+    });
   }
 
 }
