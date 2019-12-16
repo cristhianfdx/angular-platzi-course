@@ -6,6 +6,7 @@ import { AuthService } from './services/auth/auth.service';
 import { FirebaseStorageService } from './services/firebaseStorage/firebase-storage.service';
 import { TokenService } from './services/token/token.service';
 import { PreloadService } from './services/preload/preload.service';
+import { GeneratorService } from './services/generator/generator.service';
 
 @NgModule({
   declarations: [],
@@ -17,7 +18,8 @@ import { PreloadService } from './services/preload/preload.service';
     AuthService,
     FirebaseStorageService,
     TokenService,
-    PreloadService
+    PreloadService,
+    GeneratorService
   ]
 })
 export class CoreModule {

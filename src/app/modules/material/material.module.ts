@@ -18,6 +18,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [],
@@ -42,7 +43,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatCardModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatStepperModule
+    MatStepperModule,
+    MatChipsModule
   ],
   exports: [
     CommonModule,
@@ -65,7 +67,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatCardModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatStepperModule
+    MatStepperModule,
+    MatChipsModule
   ]
 })
 export class MaterialModule { }

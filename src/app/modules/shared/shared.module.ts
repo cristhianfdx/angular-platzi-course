@@ -16,6 +16,7 @@ import { HighlightDirective } from './directives/higlight/highlight.directive';
 
 // Pipes
 import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
+import { FibonacciPipe } from './pipes/fibonacci/fibonacci.pipe';
 
 
 @NgModule({
@@ -23,13 +24,15 @@ import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
     HeaderComponent,
     FooterComponent,
     HighlightDirective,
-    ExponentialPipe
+    ExponentialPipe,
+    FibonacciPipe
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     HighlightDirective,
-    ExponentialPipe
+    ExponentialPipe,
+    FibonacciPipe
   ],
   imports: [
     CommonModule,
