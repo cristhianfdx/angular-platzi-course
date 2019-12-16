@@ -19,6 +19,7 @@ import { QuicklinkModule } from 'ngx-quicklink';
 
 import * as Sentry from '@sentry/browser';
 import { InterceptorService } from './interceptor.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 Sentry.init({
   dsn: 'https://f57d062fd4464ca8b687ccaa07fba78c@sentry.io/1857688'
@@ -40,7 +41,8 @@ Sentry.init({
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireStorageModule,
-    QuicklinkModule
+    QuicklinkModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {
