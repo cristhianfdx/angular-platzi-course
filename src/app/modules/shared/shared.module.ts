@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 // Modules
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { QuicklinkModule } from 'ngx-quicklink';
 
 // Components
 import { HeaderComponent } from './components/header/header.component';
@@ -34,7 +35,8 @@ import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
     CommonModule,
     RouterModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    QuicklinkModule
   ]
 })
 export class SharedModule { }

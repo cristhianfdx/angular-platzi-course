@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { QuicklinkStrategy } from 'ngx-quicklink';
 
 import { LayoutComponent } from './modules/layout/layout.component';
 
@@ -58,7 +59,8 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     // preloadingStrategy: PreloadAllModules
-    preloadingStrategy: PreloadService
+    // preloadingStrategy: PreloadService
+    preloadingStrategy: QuicklinkStrategy
   })],
   exports: [RouterModule]
 })
