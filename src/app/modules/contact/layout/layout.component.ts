@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 import { GeneratorService } from '@core/services/generator/generator.service';
 import { EmployeeData } from '@core/models/employee-data.model';
+import { tap } from 'rxjs/operators';
 
 const names = ['Cristhian', 'Maria', 'Carlos', 'Juan'];
 
@@ -15,24 +16,30 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
   list1: EmployeeData[] = [];
   list2: EmployeeData[] = [];
-  value: number;
-  sub$: Subscription;
+  // value: number;
+  value$: Observable<number>;
+  // sub$: Subscription;
 
-  constructor(private generatorService: GeneratorService) { }
+  constructor(private generatorService: GeneratorService) {
+    this.value$ = this.generatorService.getData()
+    .pipe(
+      tap(num => console.log('Imprimiendo', num))
+    );
+  }
 
   ngOnInit() {
     this.list1 = this.generatorService.generate(names, [10, 15], 10);
     this.list2 = this.generatorService.generate(names, [10, 15], 10);
 
-    this.sub$ = this.generatorService.getData()
-    .subscribe(value => {
-      this.value = value;
-      console.log(this.value);
-    });
+    // this.sub$ = this.generatorService.getData()
+    // .subscribe(value => {
+    //   this.value = value;
+    //   console.log(this.value);
+    // });
   }
 
   ngOnDestroy() {
-    this.sub$.unsubscribe();
+    // this.sub$.unsubscribe();
   }
 
   addItem(list: EmployeeData[], label: string) {
