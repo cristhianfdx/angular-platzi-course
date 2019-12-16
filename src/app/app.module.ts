@@ -15,6 +15,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 
+import * as Sentry from '@sentry/browser';
+
+Sentry.init({
+  dsn: 'https://f57d062fd4464ca8b687ccaa07fba78c@sentry.io/1857688'
+});
+
 @NgModule({
   declarations: [
     AppComponent,
