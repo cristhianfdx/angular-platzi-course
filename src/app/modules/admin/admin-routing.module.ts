@@ -8,6 +8,7 @@ import { TableComponent } from './components/table/table.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductNewComponent } from './components/product-new/product-new.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
+import { DatesComponent } from './components/dates/dates.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
       {
         path: 'products/edit/:id',
         component: ProductEditComponent
+      },
+      {
+        path: 'dates',
+        component: DatesComponent
       }
     ]
   }

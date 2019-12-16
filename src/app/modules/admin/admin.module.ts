@@ -13,6 +13,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductNewComponent } from './components/product-new/product-new.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
+import { DatesComponent } from './components/dates/dates.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
     DashboardComponent,
     ProductListComponent,
     ProductNewComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    DatesComponent
   ],
   imports: [
     CommonModule,
