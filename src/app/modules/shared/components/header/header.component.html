@@ -8,7 +8,7 @@
         <a mat-button routerLink="/demo" routerLinkActive="active">Demo</a>
         <a mat-button routerLink="/admin" routerLinkActive="active">Admin</a>
       </nav>
-      <a mat-raised-button [matBadge]="total$ | async" matBadgeColor="accent" routerLink="/order">
+      <a mat-raised-button [matBadge]="(total$ | async).toString()" matBadgeColor="accent" routerLink="/order">
         <mat-icon>shopping_cart</mat-icon>
         Carrito
       </a>

@@ -44,4 +44,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  loginRestApi() {
+    this.authService.loginRestApi('test@mail.com', '1234')
+    .subscribe(data => {
+      console.log(data);
+    });
+  }
+
 }

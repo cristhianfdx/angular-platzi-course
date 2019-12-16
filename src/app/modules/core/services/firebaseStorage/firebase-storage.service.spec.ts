@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { FirebaseStorageService } from './firebase-storage.service';
 
-describe('FirebaseStorageService', () => {
+xdescribe('FirebaseStorageService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {

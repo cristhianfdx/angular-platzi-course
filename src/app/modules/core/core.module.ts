@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsService } from './services/products/products.service';
 import { AuthService } from './services/auth/auth.service';
 import { FirebaseStorageService } from './services/firebaseStorage/firebase-storage.service';
+import { TokenService } from './services/token/token.service';
 
 @NgModule({
   declarations: [],
@@ -13,7 +14,8 @@ import { FirebaseStorageService } from './services/firebaseStorage/firebase-stor
   providers: [
     ProductsService,
     AuthService,
-    FirebaseStorageService
+    FirebaseStorageService,
+    TokenService
   ]
 })
 export class CoreModule {
