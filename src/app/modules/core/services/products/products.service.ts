@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Product } from '../../models/product.model';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 import { environment } from '../../../../../environments/environment';
+
+interface User {
+  id: string;
+  email: string;
+  phone: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +40,18 @@ export class ProductsService {
 
   deleteProduct(id: string): Observable<any> {
     return this.http.delete(`${this.url}/products/${id}`);
+  }
+
+  getRandomUsers(): Observable<User[]> {
+    return this.http.get('https://randomusser.me/api/?results=2')
+    .pipe(
+      catchError(this.handleError),
+      map((response: any) => response.results as User[])
+    );
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.log(error);
+    return throwError('upss!!');
   }
 }
